@@ -1,6 +1,6 @@
 # k8s_keepalived
 
-Manifest to create a pod on a kubernetes cluster.
+Manifest to create a pod on a kubernetes cluster.  
 Usage :
     
     INT=eth0
