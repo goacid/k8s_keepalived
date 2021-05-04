@@ -10,19 +10,34 @@ metadata:
   namespace: kubealived-system
 data:
   keepalived.conf: |
+    ! /etc/keepalived/keepalived.conf
+    ! Configuration File for keepalived
+    global_defs {
+      router_id 20
+    }
+    vrrp_script check_apiserver {
+      script "/etc/keepalived/check_apiserver.sh"
+      interval 3
+      weight -2
+      fall 10
+      rise 2
+    }
+
     vrrp_instance VI_1 {
-        state MASTER
-        interface _INT_
-        virtual_router_id _RID_
-        priority 100
-        advert_int 1
-        authentication {
-            auth_type PASS
-            auth_pass _PASS_
-        }
-        virtual_ipaddress {
-            _VIP_
-        }
+      state master
+      interface _INT_
+      virtual_router_id _RID_
+      priority 10
+      authentication {
+        auth_type PASS
+        auth_pass _PASS_
+      }
+      virtual_ipaddress {
+        _VIP_
+      }
+      track_script {
+        check_apiserver
+      }
     }
   check_apiserver.sh: |
     #!/bin/sh
