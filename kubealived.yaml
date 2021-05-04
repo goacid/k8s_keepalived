@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: kubealived-system
+  name: _NS_
 ---
 apiVersion: v1
 kind: ConfigMap
 metadata:
   name: kubealived-config
-  namespace: kubealived-system
+  namespace: _NS_
 data:
   keepalived.conf: |
     ! /etc/keepalived/keepalived.conf
@@ -56,7 +56,7 @@ apiVersion: apps/v1
 kind: DaemonSet
 metadata:
   name: kubealived
-  namespace: kubealived-system
+  namespace: _NS_
   labels:
     app: kubealived
 spec:
