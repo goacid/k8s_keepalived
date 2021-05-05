@@ -33,7 +33,7 @@ data:
         auth_pass _PASS_
       }
       virtual_ipaddress {
-        1_VIP_
+        _VIP_
       }
       track_script {
         check_apiserver
