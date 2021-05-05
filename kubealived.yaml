@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: keepalived
+  name: _NS_
 ---
 apiVersion: v1
 kind: ConfigMap
