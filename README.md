@@ -1,5 +1,7 @@
 # k8s_keepalived
 
+Based on https://github.com/openvnf/kubealived  
+
 Manifest to create a pod on a kubernetes cluster.  
 Usage :
     
